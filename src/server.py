@@ -71,7 +71,7 @@ async def get_ecosystem_overview() -> Dict[str, Any]:
         # 2. Bench
         bench_status = {"online": False, "detail": "Bench service unreachable"}
         try:
-            r = await client.get(f"{BENCH_URL}/api/security/audit")
+            r = await client.get(f"{BENCH_URL}/api/status")
             if r.status_code == 200:
                 bench_status = {"online": True, **r.json()}
         except Exception:
